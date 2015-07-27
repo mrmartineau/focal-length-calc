@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Focal length calculator</title>
+
+	<style>
+		label {
+			display: block;
+			font-weight: bold;
+		}
+
+		input[type=radio] {
+			margin-right: 1.5em;
+			margin-bottom: 1em;
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<div id="container"></div>
+
+	<script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
+
+	<script id='template' type='text/ractive'>
+		<h1>Lens focal length calculator</h1>
+
+		<h3>Choose your camera type</h3>
+		{{#each factors}}
+			<label><input type="radio" value="{{cropFactor}}" name="{{factor}}" checked="{{checked}}">{{name}}</label>
+		{{/each}}
+
+		<h3>What is the focal length of the lens?</h3>
+		<input type="number" value="{{focalLength}}">
+
+		<h2>with that lens on your camera, it is equivalent to a {{result}}mm</h2>
+	</script>
+
+	<script src='focal-length-calc.js'></script>
+</body>
+</html>
