@@ -1,0 +1,39 @@
+{
+  "name": "focal-length-calc",
+  "version": "0.0.1",
+  "description": "An equivalent focal length calculator",
+  "main": "focal-length-calc.js",
+  "scripts": {
+    "compile": "webpack --progress --colors",
+    "test": "test",
+    "watch": "webpack --progress --colors --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrmartineau/focal-length-calc.git"
+  },
+  "keywords": [
+    "calculator",
+    "camera",
+    "focal",
+    "length"
+  ],
+  "author": "Zander Martineau",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrmartineau/focal-length-calc/issues"
+  },
+  "homepage": "https://github.com/mrmartineau/focal-length-calc#readme",
+  "devDependencies": {
+    "css-loader": "^0.15.6",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "node-sass": "^3.2.0",
+    "sass-loader": "^2.0.0",
+    "style-loader": "^0.12.3",
+    "url-loader": "^0.5.6",
+    "webpack": "^1.11.0"
+  },
+  "dependencies": {
+    "ractive": "^0.7.3"
+  }
+}
