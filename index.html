@@ -4,40 +4,37 @@
 	<meta charset="UTF-8">
 	<title>Focal length calculator</title>
 
-	<style>
-		label {
-			display: block;
-			font-weight: bold;
-		}
+	<link rel="stylesheet" href="http://trykickoff.github.io/css/kickoff.css">
 
-		input[type=radio] {
-			margin-right: 1.5em;
-			margin-bottom: 1em;
-		}
-
-
-	</style>
 </head>
 <body>
 
-	<div id="container"></div>
-
-	<script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
+	<div id="container" class="l-container"></div>
 
 	<script id='template' type='text/ractive'>
 		<h1>Lens focal length calculator</h1>
+		<p>This calculates the equivalent focal length and magnification of your lenses.</p>
 
-		<h3>Choose your camera type</h3>
-		{{#each factors}}
-			<label><input type="radio" value="{{cropFactor}}" name="{{factor}}" checked="{{checked}}">{{name}}</label>
-		{{/each}}
+		<div class="g-row">
+			<div class="g-span7 g-col">
+				<label>Choose your camera type</label>
+				<select value="{{factor}}" class="form-input">
+				{{#each factors}}
+					<option value="{{cropFactor}}">{{name}}</option>
+				{{/each}}
+				</select>
 
-		<h3>What is the focal length of the lens?</h3>
-		<input type="number" value="{{focalLength}}">
+			</div>
+			<div class="g-span5 g-col">
+				<label>What is the focal length of the lens?</label>
+				<input type="number" value="{{focalLength}}" class="form-input">
 
-		<h2>with that lens on your camera, it is equivalent to a {{result}}mm</h2>
+			</div>
+			<h2>with that lens on your camera, it is equivalent to a {{result}}mm</h2>
+		</div>
+
 	</script>
 
-	<script src='focal-length-calc.js'></script>
+	<script src='/assets/dist/js/bundle.js'></script>
 </body>
 </html>
