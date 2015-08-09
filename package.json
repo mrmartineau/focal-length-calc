@@ -6,7 +6,8 @@
   "scripts": {
     "compile": "webpack --progress --colors",
     "test": "test",
-    "watch": "webpack --progress --colors --watch"
+    "watch": "BUILD_DEV=1 BUILD_PRERELEASE=1 webpack --progress --colors --watch",
+    "deploy": "webpack -p"
   },
   "repository": {
     "type": "git",
