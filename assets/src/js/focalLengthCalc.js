@@ -112,3 +112,7 @@ var ractive = new Ractive({
 		}
 	}
 });
+	ractive.observe('focalLength', function(newValue) {
+		history.pushState(null, null, '#camera/'+ this.get('activeID') +'/lens/'+ newValue);
+		localStorage.setItem('focalLength', newValue);
+	})
