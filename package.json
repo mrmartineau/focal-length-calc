@@ -5,9 +5,9 @@
   "main": "focal-length-calc.js",
   "scripts": {
     "compile": "webpack --progress --colors",
+    "deploy": "webpack -p",
     "test": "test",
-    "watch": "BUILD_DEV=1 BUILD_PRERELEASE=1 webpack --progress --colors --watch",
-    "deploy": "webpack -p"
+    "watch": "BUILD_DEV=1 BUILD_PRERELEASE=1 webpack --progress --colors --watch"
   },
   "repository": {
     "type": "git",
