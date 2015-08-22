@@ -15,7 +15,7 @@ var definePlugin = new webpack.DefinePlugin({
 // }
 
 module.exports = {
-	entry: "./assets/src/js/focalLengthCalc.js",
+	entry: "./index.js",
 
 	output: {
 		path: __dirname,
