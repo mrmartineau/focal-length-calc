@@ -1,5 +1,7 @@
-var calc = require('./focalLengthCalc');
+var focalLengthCalc = require('./focalLengthCalc');
 var routes = require('./routes');
 
-routes();
-calc();
+document.addEventListener('DOMContentLoaded', function(e) {
+	focalLengthCalc();
+	routes();
+});
