@@ -116,3 +116,7 @@ var ractive = new Ractive({
 		history.pushState(null, null, '#camera/'+ this.get('activeID') +'/lens/'+ newValue);
 		localStorage.setItem('focalLength', newValue);
 	})
+	ractive.observe('activeID', function(newValue) {
+		history.pushState(null, null, '#camera/'+ newValue +'/lens/'+ this.get('focalLength'));
+		localStorage.setItem('activeCamera', newValue);
+	})
