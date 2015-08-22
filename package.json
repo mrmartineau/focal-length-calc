@@ -35,6 +35,7 @@
     "webpack": "^1.11.0"
   },
   "dependencies": {
+    "director": "^1.2.8",
     "ractive": "^0.7.3"
   }
 }
