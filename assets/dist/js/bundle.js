@@ -51,11 +51,13 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var calc = __webpack_require__(2);
+	var focalLengthCalc = __webpack_require__(2);
 	var routes = __webpack_require__(3);
 
-	routes();
-	calc();
+	document.addEventListener('DOMContentLoaded', function(e) {
+		focalLengthCalc();
+		routes();
+	});
 
 
 /***/ },
@@ -90,15 +92,19 @@
 			}
 		});
 
-		ractive.observe('focalLength', function(newValue) {
-			history.pushState(null, null, '#camera/'+ this.get('activeID') +'/lens/'+ newValue);
+		ractive.observe('focalLength', function(newValue, oldValue, keypath) {
+			// console.log(newValue, oldValue, keypath);
+			history.pushState(null, null, '#/camera/'+ this.get('activeID') +'/lens/'+ newValue);
 			localStorage.setItem('focalLength', newValue);
-		})
+			debugger;
+		});
 
-		ractive.observe('activeID', function(newValue) {
-			history.pushState(null, null, '#camera/'+ newValue +'/lens/'+ this.get('focalLength'));
+		ractive.observe('activeID', function(newValue, oldValue, keypath) {
+			// console.log(newValue, oldValue, keypath);
+			history.pushState(null, null, '#/camera/'+ newValue +'/lens/'+ this.get('focalLength'));
 			localStorage.setItem('activeCamera', newValue);
-		})
+			debugger;
+		});
 	}
 
 	module.exports = focalLength;
@@ -111,41 +117,39 @@
 	var Router = __webpack_require__(4).Router;
 
 	module.exports = function routes() {
-		document.addEventListener('DOMContentLoaded', function(e) {
+		// Route: #/camera/:camera/lens/:lens
+		var cameraAndLens = function (camera,lens) {
+			console.log("cameraAndLens", camera, lens);
 
-			// Route: #/camera/:camera/lens/:lens
-			var cameraAndLens = function (camera,lens) {
-				console.log("cameraAndLens", camera, lens);
+			var lensValue = lens.replace('mm', '');
 
-				var lensValue = lens.replace('mm', '');
-
+			// if (ractive !== undefined) {
 				ractive.set('focalLength', lensValue);
 				ractive.set('activeID', camera);
+			// }
+			debugger;
 
-			};
+		};
 
-			var allroutes = function() {
-				var route = window.location.hash.slice(1);
-				console.log(window.location.hash, route);
-			};
+		var allroutes = function() {
+			var route = window.location.hash.slice(2);
+			console.log(route);
+		};
 
-			// define the routing table.
-			var routes = {
-				'/camera/:camera/lens/:lens': cameraAndLens
-			};
+		// define the routing table.
+		var routes = {
+			'/camera/:camera/lens/:lens': cameraAndLens
+		};
 
-			// instantiate the router.
-			var router = Router(routes);
+		// instantiate the router.
+		var router = Router(routes);
 
-			// a global configuration setting.
-			router.configure({
-				on: allroutes
-			});
-
-			router.init();
-
+		// a global configuration setting.
+		router.configure({
+			on: allroutes
 		});
 
+		router.init();
 	}
 
 

@@ -26,15 +26,19 @@ function focalLength() {
 		}
 	});
 
-	ractive.observe('focalLength', function(newValue) {
-		history.pushState(null, null, '#camera/'+ this.get('activeID') +'/lens/'+ newValue);
+	ractive.observe('focalLength', function(newValue, oldValue, keypath) {
+		// console.log(newValue, oldValue, keypath);
+		history.pushState(null, null, '#/camera/'+ this.get('activeID') +'/lens/'+ newValue);
 		localStorage.setItem('focalLength', newValue);
-	})
+		debugger;
+	});
 
-	ractive.observe('activeID', function(newValue) {
-		history.pushState(null, null, '#camera/'+ newValue +'/lens/'+ this.get('focalLength'));
+	ractive.observe('activeID', function(newValue, oldValue, keypath) {
+		// console.log(newValue, oldValue, keypath);
+		history.pushState(null, null, '#/camera/'+ newValue +'/lens/'+ this.get('focalLength'));
 		localStorage.setItem('activeCamera', newValue);
-	})
+		debugger;
+	});
 }
 
 module.exports = focalLength;
