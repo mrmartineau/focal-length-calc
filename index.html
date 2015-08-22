@@ -20,9 +20,9 @@
 		<div class="g-row">
 			<div class="g-span7 g-col">
 				<label>Choose your camera type</label>
-				<select value="{{factor}}" class="form-input">
+				<select value="{{activeID}}" class="form-input">
 				{{#each factors}}
-					<option value="{{cropFactor}}">{{name}}</option>
+					<option value="{{_id}}" id="{{cropFactor}}" selected="{{checked}}">{{name}} - {{description}}</option>
 				{{/each}}
 				</select>
 
