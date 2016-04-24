@@ -1,42 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Focal length calculator</title>
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Focal length calculator</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<link rel="stylesheet" href="http://trykickoff.github.io/css/kickoff.css">
+		<!--
+			##  ## ######  ####  ##  ##  ####  ###### ######
+			## ##    ##   ##  ## ## ##  ##  ## ##     ##
+			####     ##   ##     ####   ##  ## ####   ####
+			## ##    ##   ##  ## ## ##  ##  ## ##     ##
+			##  ## ######  ####  ##  ##  ####  ##     ##
 
-</head>
-<body>
-	<div class="l-container">
-		<h1>Lens focal length calculator</h1>
-		<p>Have you ever wondered if a 35mm lens is on a micro 4/3 camera, what is the new focal length? This calculates the equivalent focal length and magnification of your lenses.</p>
+			Built with Kickoff - trykickoff.com
+		-->
 
-		<div id="container"></div>
-	</div>
+		<link rel="stylesheet" href="/assets/dist/css/kickoff.css">
 
-	<script id='template' type='text/ractive'>
+		<!-- For mobile icons & social metatags etc, see http://trykickoff.com/learn/html.html#socialmeta -->
 
-		<div class="g-row">
-			<div class="g-span7 g-col">
-				<label>Choose your camera type</label>
-				<select value="{{activeID}}" class="form-input">
-				{{#each factors}}
-					<option value="{{_id}}" id="{{cropFactor}}" selected="{{checked}}">{{name}} - {{description}}</option>
-				{{/each}}
-				</select>
+		<script>
+			var win = window, doc = win.document, docElem = doc.documentElement;
 
-			</div>
-			<div class="g-span5 g-col">
-				<label>What is the focal length of the lens?</label>
-				<input type="number" value="{{focalLength}}" class="form-input">
+			// Replace 'no-js'/'js' class on <html>
+			docElem.className = docElem.className.replace(/\bno-js\b/g, '') + ' js ';
 
-			</div>
-			<h2>with that lens on your camera, it is equivalent to a {{result}}mm</h2>
+			// Enhancements for qualified browsers - "Cutting the Mustard"
+			if( !('addEventListener' in win && 'classList' in docElem) ){
+
+				// Add your own enhancements here, see https://github.com/filamentgroup/enhance for more info
+			}
+		</script>
+	</head>
+	<body>
+		<div class="skipToContent">
+			<a href="#mainContent" class="btn btn--primary">Skip to main content</a>
 		</div>
+		<!--[if lte IE 9]>
+			<div class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+		<![endif]-->
 
-	</script>
 
-	<script src='assets/dist/js/bundle.js'></script>
-</body>
+		<div id="mainContent" class="l-container" role="main">
+			<div id="root"></div>
+		</div><!-- Close .l-container -->
+
+
+
+		<script src="/assets/dist/js/bundle.js"></script>
+
+		<!--
+			Use Google Analytics? Add the embed from here:
+			https://gist.github.com/mrmartineau/6b96e3e12c315af33ad5
+		-->
+
+	</body>
 </html>

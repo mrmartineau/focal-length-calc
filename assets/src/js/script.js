@@ -1,7 +1,16 @@
-var focalLengthCalc = require('./focalLengthCalc');
-var routes = require('./routes');
+/**
+ * Project Name:
+ * Client:
+ * Author:
+ * Company:
+ */
 
-document.addEventListener('DOMContentLoaded', function(e) {
-	focalLengthCalc();
-	routes();
+// npm modules
+import ready from 'lite-ready';
+import cropFactors from './cropFactors';
+
+
+// Your DOM ready code goes in here
+ready(() => {
+	console.log(cropFactors);
 });
