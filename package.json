@@ -1,8 +1,8 @@
 {
-  "name": "kickoff",
-  "title": "Kickoff",
-  "description": "A lightweight front-end framework for creating scalable, responsive websites",
-  "version": "6.1.0",
+  "name": "focal-length-calc",
+  "title": "Focal Length Calc",
+  "description": "35mm Equivalent Focal Length Calculator",
+  "version": "2.0.0",
   "homepage": "http://trykickoff.com",
   "authors": [
     {
@@ -10,15 +10,12 @@
       "url": "http://martineau.tv"
     }
   ],
-  "contributors": [
-    "Github contributors <https://github.com/trykickoff/kickoff/graphs/contributors>"
-  ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/trykickoff/kickoff.git"
+    "url": "git@github.com:mrmartineau/focal-length-calc.git"
   },
   "bugs": {
-    "url": "https://github.com/trykickoff/kickoff/issues"
+    "url": "https://github.com/mrmartineau/focal-length-calc/issues"
   },
   "license": "MIT",
   "engines": {
@@ -46,7 +43,7 @@
     "load-grunt-configs": "^0.4.3",
     "load-grunt-tasks": "^3.4.1",
     "minifyify": "^7.3.2",
-    "postscss": "^1.2.3",
+    "postscss": "^1.4.1",
     "reactify": "^1.1.1"
   },
   "optionalDependencies": {
@@ -61,10 +58,12 @@
   },
   "keywords": [],
   "scripts": {
-    "test": "grunt travis --verbose",
-    "prestart": "npm install -g npm prune && npm install",
+    "test": "grunt checks",
+
+    "prestart": "npm prune && npm install",
     "start": "grunt start",
-    "predeploy": "npm i -g npm prune && npm install --no-optional",
+
+    "predeploy": "npm prune && npm install --no-optional",
     "deploy": "grunt compile --release"
   },
   "babel": {
