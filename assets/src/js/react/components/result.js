@@ -13,7 +13,7 @@ const Result = React.createClass({
 
 	render() {
 		return (
-			<div>
+			<div className="result">
 				<h3>with that lens on your camera, it is equivalent to a</h3>
 				<div className="result">
 					{this.calcFocalLength()}mm lens

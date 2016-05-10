@@ -13,8 +13,8 @@ const FocalLengthInput = React.createClass({
 
 	render() {
 		return (
-			<div>
-				<label>What is the focal length of your lens?</label>
+			<div className="focalLengthInput">
+				<label>Focal length of your lens?</label>
 				<input
 					type="text"
 					className="form-input"
